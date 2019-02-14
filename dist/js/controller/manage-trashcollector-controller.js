@@ -1,4 +1,4 @@
-$(document).ready(loadAllDoctors);
+$(document).ready(loadAllTrashCollectors);
 
 var selected = false
 
@@ -6,55 +6,53 @@ $("#btnsavedoc").click(function () {
 
 console.log("buton click working");
     if(selected==true){
-        var ajaxDoctor={
+        var ajaxTrashCollector={
 
             method : "POST",
-            url : "api/Doctor.php",
-            data:$("#DoctorForm").serialize() + "&action=update",
+            url : "api/TrashCollector.php",
+            data:$("#CollectorForm").serialize() + "&action=update",
             async : true
 
         }
 
-        $.ajax(ajaxDoctor).done(function (response) {
-            $("#tblDoctors tbody tr").remove();
-            loadAllDoctors();
+        $.ajax(ajaxTrashCollector).done(function (response) {
+            $("#tblTrashCollectors tbody tr").remove();
+            loadAllTrashCollectors();
             $("#txtId").val("");
             $("#txtName").val("");
-            $("#txtAddress").val("");
-            $("#txtSpecial").val("");
+            $("#txtTelephone").val("");
             $("#txtId").focus();
 
 
         })
     }else{
 
-        var ajaxDoctor={
+        var ajaxTrashCollector={
 
             method : "POST",
-            url : "api/Doctor.php",
-            data:$("#DoctorForm").serialize()  + "&action=save",
+            url : "api/TrashCollector.php",
+            data:$("#CollectorForm").serialize()  + "&action=save",
             async : true
 
         }
 
-        $.ajax(ajaxDoctor).done(function (response) {
+        $.ajax(ajaxTrashCollector).done(function (response) {
 
 
-            $("#tblDoctors tbody tr").remove();
-            loadAllDoctors();
+            $("#tblTrashCollectors tbody tr").remove();
+            loadAllTrashCollectors();
             $("#txtId").val("");
             $("#txtName").val("");
-            $("#txtAddress").val("");
-            $("#txtSpecial").val("");
+            $("#txtTelephone").val("");
             $("#txtId").focus();
 
 
             if(response) {
-                alert("Doctor Has been Added Successfully");
+                alert("Trash Collector Has been Added Successfully");
 
 
             }else {
-                alert("Failed to save the Doctor")
+                alert("Failed to save the Trash Collector")
             }
 
         })
@@ -66,36 +64,34 @@ console.log("buton click working");
 
 })
 
-$("#btnAddnewDoc").click(function () {
+$("#btnAddnew").click(function () {
     selected =  false;
     $("#txtId").val("");
     $("#txtName").val("");
-    $("#txtAddress").val("");
-    $("#txtSpecial").val("");
+    $("#txtTelephone").val("");
     $("#txtId").focus();
 })
 
 
-function loadAllDoctors(){
+function loadAllTrashCollectors(){
 
     var ajaxConfig = {
         method: "GET",
-        url:"api/Doctor.php?action=all",
+        url:"api/TrashCollector.php?action=all",
         async: true
     };
 
     $.ajax(ajaxConfig).done(function(response){
         console.log(response);
-        response.forEach(function (doctor){
+        response.forEach(function (trashcollector){
             var html = "<tr>" +
-                "<td>" + doctor.docid + "</td>" +
-                "<td>" + doctor.docname + "</td>" +
-                "<td>" + doctor.address + "</td>" +
-                "<td>" + doctor.Specialized_in + "</td>" +
+                "<td>" + trashcollector.userid + "</td>" +
+                "<td>" + trashcollector.name + "</td>" +
+                "<td>" + trashcollector.telephone + "</td>" +
                 '<td class="recycle"><i class="fa fa-2x fa-trash"></i></td>' +
                 "</tr>";
 
-            $("#tblDoctors tbody").append(html);
+            $("#tblTrashCollectors tbody").append(html);
 
 
 
@@ -104,23 +100,23 @@ function loadAllDoctors(){
             $(".recycle").off();
             $(".recycle").click(function(){
 
-                var DoctorID = ($(this).parents("tr").find("td:first-child").text());
+                var TrashCollectorID = ($(this).parents("tr").find("td:first-child").text());
 
                 if (confirm("Are you sure that you want to delete?")){
 
 
                     $.ajax({
                         method:"DELETE",
-                        url:"api/Doctor.php?id=" + DoctorID,
+                        url:"api/TrashCollector.php?id=" + TrashCollectorID,
                         async: true
                     }).done(function(response){
                        if (response){
                            console.log(response);
-                           alert("Doctor has been successfully deleted");
-                           $("#tblDoctors tbody tr").remove();
-                           loadAllDoctors();
+                           alert("Trash Collector has been successfully deleted");
+                           $("#tblTrashCollectors tbody tr").remove();
+                           loadAllTrashCollectors();
                        } else{
-                           alert("Failed to delete the Doctor");
+                           alert("Failed to delete the Trash Collector");
                        }
                     });
 
@@ -128,8 +124,8 @@ function loadAllDoctors(){
 
             });
        });
-        $("#tblDoctors tbody tr").off();
-        $("#tblDoctors tbody tr").mouseenter(function(){
+        $("#tblTrashCollectors tbody tr").off();
+        $("#tblTrashCollectors tbody tr").mouseenter(function(){
             $("tr").css("cursor","pointer");
         })
         // $("#tblDoctors tbody  tr").click(function (eventData) {
@@ -143,20 +139,20 @@ function loadAllDoctors(){
         //     $("#txtName").val($name);
         //     $("#txtAddress").val($address);
 
-        $("#tblDoctors tbody  tr").click(function (eventData) {
+        $("#tblTrashCollectors tbody  tr").click(function (eventData) {
             console.log(eventData);
             console.log("raw eka click kraa");
-            $id = ($($(this).find("td").get(0)).text());
+            $userid = ($($(this).find("td").get(0)).text());
             $name = ($($(this).find("td").get(1)).text());
-            $address = ($($(this).find("td").get(2)).text());
-            $special = ($($(this).find("td").get(3)).text());
+            $telephone = ($($(this).find("td").get(2)).text());
 
-            $("#txtId").val($id);
+
+
+            $("#txtId").val($userid);
             $("#txtName").val($name);
-            $("#txtAddress").val($address);
-            $("#txtSpecial").val($special);
+            $("#txtTelephone").val($telephone);
 
-    console.log($id);
+    console.log($userid);
             selected = true;
 
 

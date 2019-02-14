@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     var ajaxConfig = {
         method:"GET",
-        url:"api/Doctor.php",
+        url:"api/Resident.php",
         data:{
             action:"count"
         },
@@ -10,7 +10,7 @@ $(document).ready(function(){
     }
 
     $.ajax(ajaxConfig).done(function(response){
-        $("#lblDoctorsCount").text(response);
+        $("#lblResidentCount").text(response);
     });
 
     // $('#lblDoctorsCount').each(function () {
@@ -30,21 +30,21 @@ $(document).ready(function(){
 
     var ajaxconfig2 = {
         method: "GET",
-        url:"api/Patient.php",
+        url:"api/TrashCollector.php",
         data:{
             action:"count"
         },
         async:true
     }
     $.ajax(ajaxconfig2).done(function (response) {
-        $("#lblPatientsCount").text(response);
+        $("#lblCollectorsCount").text(response);
 
 
     });
     var ajaxConfig3 = {
 
         method: "GET",
-        url:"api/Appointment.php",
+        url:"api/Vehicle.php",
         data:{
             action:"count"
         },
@@ -52,21 +52,21 @@ $(document).ready(function(){
 
     }
     $.ajax(ajaxConfig3).done(function (response) {
-        $("#lblAppointmetsCount").text(response);
+        $("#lblVehicleCount").text(response);
 
     });
 
     var ajaxConfig4 = {
 
         method: "GET",
-        url:"api/Report.php",
+        url:"api/Trash.php",
         data:{
             action:"count"
         },
         async:true
     }
     $.ajax(ajaxConfig4).done(function (response) {
-        $("#lblReportCount").text(response);
+        $("#lblTrashCount").text(response);
 
     });
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="dist/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="dist/css/manage-doctors.css">
+    <link rel="stylesheet" href="dist/css/manage-trashCollectors.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -99,12 +99,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Doctors</h1>
+                        <h1 class="m-0 text-dark">Manage Trash Collectors</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">Manage Doctors</li>
+                            <li class="breadcrumb-item active">Manage Trash-Collectors</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -120,17 +120,16 @@
         <section class="content">
             <div class="row">
                 <div class="col col-md-4 col-12">
-                    <form id = "DoctorForm">
-                        <button class="btn btn-info btn-sm" id="btnAddnewDoc" type="buttn" style="float: right" > ADD NEW* </button><br>
-                        <label>Doctor ID : </label><br>
-                        <input type="text" name="txtId" placeholder="Doctor ID" class="form-control" id="txtId"><br>
-                        <label>Doctor Name : </label><br>
-                        <input type="text" name="txtName"placeholder="Doctor Name" class="form-control" id="txtName"><br>
-                        <label>Doctor Address : </label><br>
-                        <input type="text" name="txtAddress"placeholder="Doctor Address" class="form-control" id="txtAddress"><br>
-                        <label>Specialized in : </label><br>
-                        <input type="text" name="txtSpecial"placeholder="Specialized in" class="form-control" id="txtSpecial"><br>
-                        <button class="btn btn-info btn-sm" id="btnsavedoc" type="button" style="float: right"> SAVE Doctor </button>
+                    <form id = "CollectorForm">
+                        <button class="btn btn-info btn-sm" id="btnAddnew" type="buttn" style="float: right" > ADD NEW* </button><br>
+                        <label>User ID : </label><br>
+                        <input type="text" name="txtId" placeholder="User ID" class="form-control" id="txtId"><br>
+                        <label>Full Name : </label><br>
+                        <input type="text" name="txtName"placeholder="Full Name" class="form-control" id="txtName"><br>
+                        <label>Telephone No : </label><br>
+                        <input type="text" name="txtTelephone"placeholder="Telephone no" class="form-control" id="txtTelephone"><br>
+
+                        <button class="btn btn-info btn-sm" id="btnsavedoc" type="button" style="float: right"> SAVE </button>
 
 
                     </form>
@@ -139,13 +138,12 @@
 
                 </div>
                 <div class="col col-md-8 col-12">
-                    <table id="tblDoctors" class="table table-bordered table-hover table-primary">
+                    <table id="tblTrashCollectors" class="table table-bordered table-hover table-primary">
                         <thead>
                             <tr>
-                                <th>Doctor ID</th>
-                                <th>Doctor Name</th>
-                                <th>Doctor Address</th>
-                                <th>Specialized in</th>
+                                <th>User ID</th>
+                                <th>Full Name</th>
+                                <th>Telephone no</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -160,7 +158,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2018 <a href="http://esportlk.com">eSports-LK</a>.</strong>
+        <strong>Copyright &copy; 2018 <a href="http://esportlk.com">Cash-on-Trash</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0.0
@@ -182,6 +180,6 @@
 <script src="dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
-<script src="dist/js/controller/manage-doctor-controller.js"></script>
+<script src="dist/js/controller/manage-trashcollector-controller.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="dist/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="dist/css/manage-doctors.css">
+    <link rel="stylesheet" href="dist/css/manage-trashCollectors.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -99,12 +99,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Patients</h1>
+                        <h1 class="m-0 text-dark">Manage Vehicles</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">Manage Patients</li>
+                            <li class="breadcrumb-item active">Manage Vehicles</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -120,19 +120,18 @@
         <section class="content">
             <div class="row">
                 <div class="col col-md-4 col-12">
-                    <form id = "patientForm">
+                    <form id = "VehicleForm">
                         <button class="btn btn-info btn-sm" id="btnAddnew" type="buttn"> ADD NEW* </button><br>
-                        <label>Patient ID : </label><br>
-                        <input class="form-control" type="text" id="txtId" name="txtId" placeholder="Patient ID"><br>
-                        <label>Patient Name : </label><br>
-                        <input class="form-control" type="text" id="txtName" name="txtName"placeholder="Patient name"><br>
-                        <label>Patient Gender : </label><br>
-                        <input class="form-control" type="text" id="txtGender" name="txtGender"placeholder="Patient Gender"><br>
-                        <label>Patient Address : </label><br>
-                        <input class="form-control" type="text" id="txtAddress" name="txtAddress"placeholder="Patient Adress"><br>
-                        <label>Patient Age : </label><br>
-                        <input class="form-control" type="text" id="txtAge" name="txtAge"placeholder="Patient Age"><br>
-                        <button class="btn btn-info btn-sm" id="btnsavepatient" type="button" style="float: right">Save Patient </button>
+                        <label>Vehicle ID : </label><br>
+                        <input class="form-control" type="text" id="txtvehicleID" name="txtvehicleID" placeholder="Vehicle ID"><br>
+                        <label>Vehicle NO : </label><br>
+                        <input class="form-control" type="text" id="txtvehicleNo" name="txtvehicleNo"placeholder="Vehicle NO"><br>
+                        <label>Vehicle Type : </label><br>
+                        <input class="form-control" type="text" id="txtvehicleType" name="txtvehicleType"placeholder="Vehicle Type"><br>
+                        <label>Current Location : </label><br>
+                        <input class="form-control" type="text" id="txtlocation" name="txtlocation"placeholder="Current Location"><br>
+
+                        <button class="btn btn-info btn-sm" id="btnsave" type="button" style="float: right">SAVE Vehicle </button>
 
 
                     </form>
@@ -141,15 +140,14 @@
 
                 </div>
                 <div class="col col-md-8 col-12">
-                    <table id="tblPatients" class="table table-bordered table-hover table-info">
+                    <table id="tblVehicle" class="table table-bordered table-hover table-info">
                         <thead>
                         <tr>
-                            <th>Patient ID</th>
-                            <th>Patient Name</th>
-                            <th>Patient Gender</th>
-                            <th>patient Address</th>
-                            <th>Patient Age</th>
-                            <th>Discharge Patient</th>
+                            <th>Vehicle ID</th>
+                            <th>Vehicle NO</th>
+                            <th>Vehicle Type</th>
+                            <th>Current location</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -163,7 +161,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2018 <a href="http://esportlk.com">eSports-LK</a>.</strong>
+        <strong>Copyright &copy; 2018 <a href="http://esportlk.com">Cash-on-Trash</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0.0
@@ -185,6 +183,6 @@
 <script src="dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
-<script src="dist/js/controller/manage-patient-controller.js"></script>
+<script src="dist/js/controller/manage-vehicle-controller.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ header("Content-Type: application/json");
 $method = $_SERVER["REQUEST_METHOD"];
 
 
-$AppointmentBO = new ResidentBOImpl();
+$ResidentBO = new ResidentBOImpl();
 
 switch ($method) {
     case "GET":
@@ -23,11 +23,11 @@ switch ($method) {
 
         switch ($action){
             case "count":
-                echo json_encode($AppointmentBO->getApponintmetCount());
+                echo json_encode($ResidentBO->getResidentCount());
                 break;
 
             case "all":
-                echo json_encode($AppointmentBO->getAllAppointments());
+                echo json_encode($ResidentBO->getAllResident());
                 break;
 
         }
@@ -40,21 +40,25 @@ switch ($method) {
         switch ($action){
 
             case "save":
-                $appoid = $_POST["txtappoid"];
-                $docid = $_POST["txtdocid"];
-                $patientid = $_POST["txtpatientid"];
-                $date = $_POST["txtDate"];
+                $user_Id = $_POST["txtuserid"];
+                $name = $_POST["txtname"];
+                $address = $_POST["txtaddress"];
+                $telephone = $_POST["txttelephone"];
+                $level = $_POST["txtlevel"];
+                $points = $_POST["txtpoint"];
 
-                echo json_encode($AppointmentBO->saveAppointments($appoid,$docid,$patientid,$date));
+                echo json_encode($ResidentBO->saveResident($user_Id,$name,$address,$telephone,$level,$points));
                 break;
 
             case "update":
-                $appoid = $_POST["txtappoid"];
-                $docid = $_POST["txtdocid"];
-                $patientid = $_POST["txtpatientid"];
-                $date = $_POST["txtDate"];
+                $user_Id = $_POST["txtuserid"];
+                $name = $_POST["txtname"];
+                $address = $_POST["txtaddress"];
+                $telephone = $_POST["txttelephone"];
+                $level = $_POST["txtlevel"];
+                $points = $_POST["txtpoint"];
 
-                echo json_encode($AppointmentBO->updateAppointments($appoid,$docid,$patientid,$date));
+                echo json_encode($ResidentBO->updateResident($user_Id,$name,$address,$telephone,$level,$points));
                 break;
 
         }
@@ -64,8 +68,8 @@ switch ($method) {
         $queryArray = preg_split("/=/",$queryString);
 
         if (count($queryArray)==2){
-            $appoid =$queryArray[1];
-            echo json_encode($AppointmentBO->deleteAppointments($appoid));
+            $user_Id =$queryArray[1];
+            echo json_encode($ResidentBO->deleteResident($user_Id));
 
 
         }

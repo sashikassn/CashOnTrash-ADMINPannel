@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="dist/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="dist/css/manage-doctors.css">
+    <link rel="stylesheet" href="dist/css/manage-trashCollectors.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -99,12 +99,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Appointments</h1>
+                        <h1 class="m-0 text-dark">Manage Residents</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">Manage Appointments</li>
+                            <li class="breadcrumb-item active">Manage Residents</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -119,18 +119,22 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
-                <div class="col col-md-6 col-12">
-                    <form id = "AppoForm">
+                <div class="col col-md-4 col-12">
+                    <form id = "ResidentForm">
                         <button class="btn btn-info btn-sm" id="btnAddnew" type="buttn" style="float: right"> ADD NEW* </button><br>
-                        <label>Appointment ID : </label><br>
-                        <input class="form-control" type="text" id="txtappoid" name="txtappoid" placeholder="Appointment ID"><br>
-                        <label>Doctor ID : </label><br>
-                        <input class="form-control" type="text" id="txtdocid" name="txtdocid"placeholder="Doctor ID"><br>
-                        <label>Patient ID : </label><br>
-                        <input class="form-control" type="text" id="txtpatientid" name="txtpatientid"placeholder="Patient ID"><br>
-                        <label>Date : </label><br>
-                        <input class="form-control" type="date" id="txtDate" name="txtDate"placeholder="Date of test"><br>
-                        <button class="btn btn-info btn-sm" id="btnsave" type="button" style="float: right"> SAVE Appointment </button>
+                        <label>User ID : </label><br>
+                        <input class="form-control" type="text" id="txtuserid" name="txtuserid" placeholder="User ID"><br>
+                        <label>Full Name : </label><br>
+                        <input class="form-control" type="text" id="txtname" name="txtname"placeholder="Full Name"><br>
+                        <label>Address Lane : </label><br>
+                        <input class="form-control" type="text" id="txtaddress" name="txtaddress"placeholder="Address lane"><br>
+                        <label>Telephone No : </label><br>
+                        <input class="form-control" type="text" id="txttelephone" name="txttelephone"placeholder="Telephone no"><br>
+                        <label>Current Level : </label><br>
+                        <input class="form-control" type="text" id="txtlevel" name="txtlevel"placeholder="Current Level"><br>
+                        <label>Points : </label><br>
+                        <input class="form-control" type="text" id="txtpoint" name="txtpoint"placeholder="Points"><br>
+                        <button class="btn btn-info btn-sm" id="btnsave" type="button" style="float: right"> SAVE Resident </button>
 
 
 
@@ -139,14 +143,16 @@
 
 
                 </div>
-                <div class="col col-md-6 col-12">
-                    <table id="tblAppointments" class="table table-bordered table-info table-hover">
+                <div class="col col-md-8 col-12">
+                    <table id="tblResident" class="table table-bordered table-info table-hover">
                         <thead>
                         <tr>
-                            <th>Appointment ID</th>
-                            <th>Doctor ID</th>
-                            <th>Patient ID</th>
-                            <th>Date</th>
+                            <th>User ID</th>
+                            <th>Full Name</th>
+                            <th>Address</th>
+                            <th>Telephone</th>
+                            <th>Level</th>
+                            <th>Points</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -161,7 +167,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2018 <a href="http://esportlk.com">eSports-LK</a>.</strong>
+        <strong>Copyright &copy; 2018 <a href="http://esportlk.com">Cash-on-Trash</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0.0
@@ -183,6 +189,6 @@
 <script src="dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
-<script src="dist/js/controller/manage-appointment-controller.js"></script>
+<script src="dist/js/controller/manage-resident-controller.js"></script>
 </body>
 </html>

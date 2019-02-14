@@ -11,7 +11,7 @@ header("Content-Type: application/json");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-$ReportBO = new TrashBOImpl();
+$TrashBO = new TrashBOImpl();
 
 switch ($method) {
     case "GET":
@@ -20,16 +20,16 @@ switch ($method) {
 
             switch ($action){
                 case "count":
-                    echo json_encode($ReportBO->getReportCount());
+                    echo json_encode($TrashBO->getTrashCount());
                     break;
 
                 case "all":
-                    echo json_encode($ReportBO->getAllReports());
+                    echo json_encode($TrashBO->getAllTrash());
                     break;
 
                 case "findbyid":
-                    $reportid= $_GET["id"];
-                    echo json_encode($ReportBO->findReport($reportid));
+                    $trash_type= $_GET["id"];
+                    echo json_encode($TrashBO->findTrash($trash_type));
                     break;
 
             }
@@ -42,24 +42,20 @@ switch ($method) {
         switch ($action){
 
             case "save":
-                $reportid = $_POST["txtReportID"];
-                $docid = $_POST["txtDoctorID"];
-                $patientid = $_POST["txtPatientID"];
-                $dateoftest = $_POST["txtDateofTest"];
-                $details = $_POST["txtDetails"];
+                $trash_type = $_POST["txttrashtype"];
+                $weight = $_POST["txtweight"];
+                $value = $_POST["txtvalue"];
 
-                echo json_encode($ReportBO->saveReports($reportid,$docid,$patientid,$dateoftest,$details));
+                echo json_encode($TrashBO->saveTrash($trash_type,$weight,$value));
                 break;
 
 
             case "update":
-                $reportid = $_POST["txtReportID"];
-                $docid = $_POST["txtDoctorID"];
-                $patientid = $_POST["txtPatientID"];
-                $dateoftest = $_POST["txtDateofTest"];
-                $details = $_POST["txtDetails"];
+                $trash_type = $_POST["txttrashtype"];
+                $weight = $_POST["txtweight"];
+                $value = $_POST["txtvalue"];
 
-                echo json_encode($ReportBO->updateReports($reportid,$docid,$patientid,$dateoftest,$details));
+                echo json_encode($TrashBO->saveTrash($trash_type,$weight,$value));
                 break;
 
         }
@@ -71,8 +67,8 @@ switch ($method) {
         $queryArray = preg_split("/=/",$queryString);
 
         if (count($queryArray)==2) {
-            $reportid = $queryArray[1];
-            echo json_encode($ReportBO->deleteReports($reportid));
+            $trash_type = $queryArray[1];
+            echo json_encode($TrashBO->deleteTrash($trash_type));
         }
 
         break;

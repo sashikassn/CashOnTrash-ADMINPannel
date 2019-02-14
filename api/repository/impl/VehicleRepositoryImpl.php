@@ -43,13 +43,13 @@ class VehicleRepositoryImpl implements VehicleRepository
         return ($result && ($this->connection->affected_rows>0));
     }
 
-    public function findPatient($vehicle_Id)
+    public function findVehicle($vehicle_Id)
     {
        $resultset = $this->connection->query("SELECT * FROM vehicle WHERE vehicle_Id='{$vehicle_Id}'");
        return $resultset->fetch_assoc();
     }
 
-    public function findAllPatients()
+    public function findAllVehicle()
     {
        $resultset = $this->connection->query("SELECT * FROM vehicle");
        return $resultset->fetch_all(MYSQLI_ASSOC);

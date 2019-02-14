@@ -8,9 +8,9 @@
 
 class DBConnection
 {
-    private $host = "35.198.222.95";
+    private $host = "localhost";
     private $username = "root";
-    private $password = "AdminEsports#2018";
+    private $password = "";
     private $port = 3306;
     private $database = "cash_on_trash";
 

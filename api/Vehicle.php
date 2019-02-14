@@ -12,7 +12,7 @@ header("Content-Type: application/json");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-$PatientBO = new VehicleBOImpl();
+$VehicleBO= new VehicleBOImpl();
 
 switch ($method) {
 
@@ -21,71 +21,40 @@ switch ($method) {
 
         switch ($action) {
             case "count":
-                echo json_encode($PatientBO->getPatientCount());
+                echo json_encode($VehicleBO->getVehicleCount());
                 break;
             case "all":
-                echo json_encode($PatientBO->getAllPatients());
+                echo json_encode($VehicleBO->getAllVehicles());
                 break;
 
         }
 
         break;
 
-//    case "POST":
-//        $action = $_POST["action"];
-//        echo $action;
-//        switch ($action){
-//
-//            case "save":
-//                $id = $_POST["txtId"];
-//                $name = $_POST["txtName"];
-//                $gender = $_POST["txtGender"];
-//                $address = $_POST["txtAddress"];
-//                $age = $_POST["txtAge"];
-//                echo json_encode($PatientBO->savePatients($id,$name,$gender,$address,$age));
-//                break;
-//
-//            case "update":
-//                $id = $_POST["txtId"];
-//                $name= $_POST["txtName"];
-//                $gender= $_POST["txtGender"];
-//                $address= $_POST["txtAddress"];
-//                $age= $_POST["txtAge"];
-//                echo json_encode($PatientBO->updatePatiets($id,$name,$gender,$address,$age));
-//                break;
-//
-//        }
-
-
-//        $id,$name,$gender,$address,$age
-//
 
     case "POST":
         $action = $_POST["action"];
-//       echo $action;
+     echo $action;
         switch ($action) {
             case "save" :
-                $id = $_POST["txtId"];
-                $name = $_POST["txtName"];
-                $gender = $_POST["txtGender"];
-                $address = $_POST["txtAddress"];
-                $age = $_POST["txtAge"];
+                $vehicle_Id = $_POST["txtvehicleID"];
+                $vehicle_no = $_POST["txtvehicleNo"];
+                $type = $_POST["txtvehicleType"];
+                $location = $_POST["txtlocation"];
 
-                echo json_encode($PatientBO->savePatients($id, $name, $gender, $address, $age));
+                echo json_encode($VehicleBO->saveVehicles($vehicle_Id, $vehicle_no, $type, $location));
 
                 break;
 
             case "update" :
 
-                $id = $_POST["txtId"];
-
-                $name = $_POST["txtName"];
-                $gender = $_POST["txtGender"];
-                $address = $_POST["txtAddress"];
-                $age = $_POST["txtAge"];
+                $vehicle_Id = $_POST["txtvehicleID"];
+                $vehicle_no = $_POST["txtvehicleNo"];
+                $type = $_POST["txtvehicleType"];
+                $location = $_POST["txtlocation"];
 
 
-                echo json_encode($PatientBO->updatePatiets($id, $name, $gender, $address, $age));
+                echo json_encode($VehicleBO->updateVehicles($vehicle_Id, $vehicle_no, $type, $location));
 
 
                 break;
@@ -97,7 +66,7 @@ switch ($method) {
 
                 if (count($queryArray) == 2) {
                     $id = $queryArray[1];
-                    echo json_encode($PatientBO->deletePatients($id));
+                    echo json_encode($VehicleBO->deleteVehicles($vehicle_Id));
 
 
                 }

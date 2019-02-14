@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin-Pannel | Dashboard</title>
+    <style>
+        #map {
+            height: 700px;
+            width: 100%;
+        }
+    </style>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -119,7 +125,7 @@
                         <!-- small box -->
                         <div class="small-box bg-secondary">
                             <div class="inner">
-                                <h3 id="lblDoctorsCount"></h3>
+                                <h3 id="lblResidentCount"></h3>
 
                                 <p>Residents Registred</p>
                             </div>
@@ -134,7 +140,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3 id="lblPatientsCount"></h3>
+                                <h3 id="lblCollectorsCount"></h3>
 
                                 <p>Trash Collectors</p>
                             </div>
@@ -149,7 +155,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning-gradient">
                             <div class="inner">
-                                <h3 id="lblAppointmetsCount" ></h3>
+                                <h3 id="lblVehicleCount" ></h3>
 
                                 <p>Vehicles</p>
                             </div>
@@ -163,7 +169,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3 id="lblReportCount" ></h3>
+                                <h3 id="lblTrashCount" >600 kG</h3>
 
                                 <p>Trash</p>
                             </div>
@@ -179,10 +185,47 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
+        <div id="map"></div>
     </div>
-    <!-- /.content-wrapper -->
+
+
+    <script>
+        function initMap(){
+            var location = {lat: 6.927079, lng: 79.861244}
+            var location2 = {lat: 6.930830, lng: 79.984215}
+            var location3 = {lat: 6.906079, lng: 79.969627}
+            var location4 = {lat: 6.901825, lng: 79.854683}
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: location
+
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+            var marker2 = new google.maps.Marker({
+                position: location2,
+                map: map
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: location3,
+                map: map
+            });
+            var marker4 = new google.maps.Marker({
+                position: location4,
+                map: map
+            });
+
+
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0BryDnicXuVDFFLgymafDSs9mgZvHu9Q&callback=initMap">
+
+    </script>
     <footer class="main-footer">
-        <strong>Copyright &copy; 2019 <a href="http://esportlk.com">cash-on-trash</a>.</strong>
+        <strong>Copyright &copy; 2019 <a href="http://esportlk.com">Cash-on-Trash</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0.0
@@ -195,6 +238,8 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+
+
 <!-- ./wrapper -->
 
 <script src="dist/js/plugins/jquery/jquery.js"></script>

@@ -2,11 +2,11 @@
     text-align: center;
 }
 
-#tblCustomers tbody tr{
+#tblTrashCollectors tbody tr{
     cursor: pointer;
 }
 
-#tblCustomers tbody{
+#tblTrashCollectors tbody{
     background-color: white;
 }
 

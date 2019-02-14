@@ -12,7 +12,7 @@ header("Content-Type: application/json");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-$DoctorBO = new TrashCollectorBOImpl();
+$TrashCollectorBO = new TrashCollectorBOImpl();
 
 switch ($method) {
     case "GET":
@@ -20,10 +20,10 @@ switch ($method) {
 
         switch ($action) {
             case "count":
-                echo json_encode($DoctorBO->getDoctorCount());
+                echo json_encode($TrashCollectorBO->getTrashCollectorCount());
                 break;
             case "all":
-                echo json_encode($DoctorBO->getAllDoctors());
+                echo json_encode($TrashCollectorBO->getAllTrashCollector());
                 break;
         }
 
@@ -33,22 +33,19 @@ switch ($method) {
 //       echo $action;
         switch ($action) {
             case "save" :
-                $id = $_POST["txtId"];
+                $userid = $_POST["txtId"];
                 $name = $_POST["txtName"];
-                $address = $_POST["txtAddress"];
-                $special = $_POST["txtSpecial"];
-                echo json_encode($DoctorBO->saveDoctor($id, $name, $address, $special));
+                $telephone = $_POST["txtTelephone"];
+                echo json_encode($TrashCollectorBO->saveTrashCollector($userid, $name, $telephone));
                 break;
 
             case "update" :
 
-                $id = $_POST["txtId"];
-                //echo $id,$name,$address;
+                $userid = $_POST["txtId"];
                 $name = $_POST["txtName"];
-                $address = $_POST["txtAddress"];
-                $special = $_POST["txtSpecial"];
-//                echo $id,$name,$address;
-                echo json_encode($DoctorBO->updateDoctor($id, $name, $address,$special));
+                $telephone = $_POST["txtTelephone"];
+
+                echo json_encode($TrashCollectorBO->updateTrashCollector($userid, $name, $telephone));
 
 
                 break;
@@ -58,7 +55,7 @@ switch ($method) {
         $queryArray = preg_split("/=/", $queryString);
         if (count($queryArray) === 2) {
             $id = $queryArray[1];
-            echo json_encode($DoctorBO->deleteDoctors($id));
+            echo json_encode($TrashCollectorBO->deleteTrashCollector($userid));
         }
         break;
 }
