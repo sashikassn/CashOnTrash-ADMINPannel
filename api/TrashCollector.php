@@ -33,19 +33,19 @@ switch ($method) {
 //       echo $action;
         switch ($action) {
             case "save" :
-                $userid = $_POST["txtId"];
+                $user_Id = $_POST["txtId"];
                 $name = $_POST["txtName"];
                 $telephone = $_POST["txtTelephone"];
-                echo json_encode($TrashCollectorBO->saveTrashCollector($userid, $name, $telephone));
+                echo json_encode($TrashCollectorBO->saveTrashCollector($user_Id, $name, $telephone));
                 break;
 
             case "update" :
 
-                $userid = $_POST["txtId"];
+                $user_Id = $_POST["txtId"];
                 $name = $_POST["txtName"];
                 $telephone = $_POST["txtTelephone"];
 
-                echo json_encode($TrashCollectorBO->updateTrashCollector($userid, $name, $telephone));
+                echo json_encode($TrashCollectorBO->updateTrashCollector($user_Id, $name, $telephone));
 
 
                 break;
@@ -55,7 +55,7 @@ switch ($method) {
         $queryArray = preg_split("/=/", $queryString);
         if (count($queryArray) === 2) {
             $id = $queryArray[1];
-            echo json_encode($TrashCollectorBO->deleteTrashCollector($userid));
+            echo json_encode($TrashCollectorBO->deleteTrashCollector($user_Id));
         }
         break;
 }

@@ -85,7 +85,7 @@ function loadAllTrashCollectors(){
         console.log(response);
         response.forEach(function (trashcollector){
             var html = "<tr>" +
-                "<td>" + trashcollector.userid + "</td>" +
+                "<td>" + trashcollector.user_Id + "</td>" +
                 "<td>" + trashcollector.name + "</td>" +
                 "<td>" + trashcollector.telephone + "</td>" +
                 '<td class="recycle"><i class="fa fa-2x fa-trash"></i></td>' +
@@ -128,32 +128,24 @@ function loadAllTrashCollectors(){
         $("#tblTrashCollectors tbody tr").mouseenter(function(){
             $("tr").css("cursor","pointer");
         })
-        // $("#tblDoctors tbody  tr").click(function (eventData) {
-        //     console.log("raw eka click kraa");
-        //
-        //     $id = ($($(this).find("td").get(0)).text());
-        //     $name = ($($(this).find("td").get(1)).text());
-        //     $address = ($($(this).find("td").get(2)).text());
-        //
-        //     $("#txtId").val($id);
-        //     $("#txtName").val($name);
-        //     $("#txtAddress").val($address);
+
 
         $("#tblTrashCollectors tbody  tr").click(function (eventData) {
             console.log(eventData);
             console.log("raw eka click kraa");
-            $userid = ($($(this).find("td").get(0)).text());
+            $user_Id = ($($(this).find("td").get(0)).text());
             $name = ($($(this).find("td").get(1)).text());
             $telephone = ($($(this).find("td").get(2)).text());
 
 
 
-            $("#txtId").val($userid);
+            $("#txtId").val($user_Id);
             $("#txtName").val($name);
             $("#txtTelephone").val($telephone);
 
     console.log($userid);
             selected = true;
+
 
 
 
