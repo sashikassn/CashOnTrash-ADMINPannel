@@ -200,30 +200,35 @@
                 center: location
 
             });
+            var icon = {url: 'assets/garbage-truck.png'};
             var marker = new google.maps.Marker({
                 position: location,
-                map: map
+                map: map,
+                icon: icon
             });
             var marker2 = new google.maps.Marker({
                 position: location2,
-                map: map
+                map: map,
+                icon: icon
             });
 
             var marker3 = new google.maps.Marker({
                 position: location3,
-                map: map
+                map: map,
+                icon: icon
             });
             var marker4 = new google.maps.Marker({
                 position: location4,
-                map: map
+                map: map,
+                icon: icon
             });
 
 
         }
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0BryDnicXuVDFFLgymafDSs9mgZvHu9Q&callback=initMap">
 
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTZHpStyeU8Hgzs7dp2_US7d_owW8n0rw&callback=initMap"
+            type="text/javascript"></script>
     <footer class="main-footer">
         <strong>Copyright &copy; 2019 <a href="http://esportlk.com">Cash-on-Trash</a>.</strong>
         All rights reserved.
